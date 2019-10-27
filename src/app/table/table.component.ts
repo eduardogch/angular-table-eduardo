@@ -23,7 +23,7 @@ import {
   templateUrl: './table.component.html'
 })
 export class TableComponent implements OnInit {
-  @ViewChild('displayHeader') displayHeader: ElementRef;
+  @ViewChild('displayHeader', {static: false}) displayHeader: ElementRef;
   @ViewChildren('displayHeaderItem') displayHeaderItem: QueryList<ElementRef>;
   @ViewChildren('hiddenHeaderItem') hiddenHeaderItem: QueryList<ElementRef>;
 
