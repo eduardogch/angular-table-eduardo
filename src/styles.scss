@@ -1,0 +1,103 @@
+/* Variables */
+$capcoPrimary: #C00D0D;
+$capcoSecondary: #4c4c4c;
+
+$white: #fff;
+$light-gray: #eee;
+$dark-gray: $capcoSecondary;
+$black: #000;
+
+$gutter-sm: 5px;
+$gutter-md: 10px;
+
+$border-style: 2px solid $dark-gray;
+$box-shadow-style: 0px 0px 18px -2px $black;
+
+@mixin rowtransition() {
+  cursor: pointer;
+  transition: color 0.2s;
+  transition: background-color 0.2s;
+}
+@mixin hoverrow() {
+  background-color: $dark-gray;
+  color: $white;
+  transition: color
+}
+
+/* Styles */
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+}
+
+table {
+  border: none;
+  border-spacing: 0px;
+  thead {
+    .display-header {
+      background-color: $white;
+      box-shadow: 0px 2px 14px -4px $black;
+      position: fixed;
+    }
+    .hidden-header { visibility: hidden; }
+  }
+  :not(thead) tr {
+    @include rowtransition();
+    &:nth-child(even) {
+      background-color: $white;
+      &:hover { @include hoverrow(); }
+    }
+    &:nth-child(odd) {
+      background-color: $light-gray;
+      &:hover { @include hoverrow(); }
+    }
+
+    &:nth-last-child(2) > td { border-bottom: $border-style; }
+    &.spacer-row { height: 60px; }
+  }
+
+  th, td {
+    border-right: $border-style;
+    padding: $gutter-md;
+    white-space: nowrap;
+    &:first-child { border-left: $border-style; }
+  }
+
+  th {
+    border-top: $border-style;
+    border-bottom: $border-style;
+  }
+
+  tfoot {
+    background-color: $capcoPrimary;
+    bottom: 0;
+    box-shadow: 0px 0px 18px -4px $black;
+    color: $white;
+    left: 0;
+    position: fixed;
+    width: 100%;
+
+    .rows {
+      float: right;
+      padding: $gutter-md;
+
+      p, select {
+        float: left;
+        margin: 0 $gutter-md 0;
+      }
+    }
+
+    .pagination {
+      float: left;
+      padding: $gutter-md;
+    }
+  }
+
+  .pointer {
+    cursor: pointer;
+    opacity: 0.8;
+    &:hover { opacity: 1; }
+  }
+}
