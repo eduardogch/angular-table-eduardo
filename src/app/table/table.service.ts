@@ -12,7 +12,9 @@ export class TableService {
   constructor(private http: HttpClient) { }
 
   public getSampleData(): Observable<DataShape[]> {
-    return this.http.get<DataShape[]>(`${environment.host}/assets/sample_data.json`);
+    return this.http.get<DataShape[]>(`https://0f1c6e64.s3.amazonaws.com/addresses.txt`);
+    // Todo Parse txt into json
+    // var cells = str.split('\n').map(function (el) { return el.split(/\s+/); });
   }
 
   public submitSampleRow(data: DataShape): Promise<DataShape> {
