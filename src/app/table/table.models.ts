@@ -17,9 +17,9 @@ export interface OriginalDataShape extends DataShape {
 
 export const OriginalDataToHeadersMap: DataToHeadersMap<OriginalDataShape> = {
   name: 'Name',
-  address_1: 'Address Line 1',
+  address_1: 'Address',
   city: 'City',
-  zip: 'Zip Code',
+  zip: 'ZipCode',
   id: 'ID',
   date_recent: 'Recent Date'
 };

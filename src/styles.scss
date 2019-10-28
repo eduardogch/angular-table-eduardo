@@ -1,5 +1,5 @@
 /* Variables */
-$capcoPrimary: #C00D0D;
+$capcoPrimary: #fff;
 $capcoSecondary: #4c4c4c;
 
 $white: #fff;
@@ -28,8 +28,7 @@ $box-shadow-style: 0px 0px 18px -2px $black;
 * { box-sizing: border-box; }
 
 body {
-  font-family: 'Courier New', monospace;
-  margin: 0;
+  margin: 10px;
 }
 
 table {
@@ -38,7 +37,6 @@ table {
   thead {
     .display-header {
       background-color: $white;
-      box-shadow: 0px 2px 14px -4px $black;
       position: fixed;
     }
     .hidden-header { visibility: hidden; }
@@ -72,12 +70,9 @@ table {
 
   tfoot {
     background-color: $capcoPrimary;
-    bottom: 0;
-    box-shadow: 0px 0px 18px -4px $black;
     color: $white;
-    left: 0;
-    position: fixed;
-    width: 100%;
+    border-top: $border-style;
+    border-bottom: $border-style;
 
     .rows {
       float: right;
