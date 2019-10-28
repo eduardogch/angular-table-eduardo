@@ -13,7 +13,7 @@ export class TableService {
 
   public getSampleData(): Observable<DataShape[]> {
     return this.http.get<DataShape[]>(`${environment.host}/assets/addresses.txt`, 
-      { responseType: 'text' }).subscribe(data => {
+      { responseType: 'text' }).pipe(data => {
       const response = data.split(/\r?\n/).map((el, index) => { 
         let columns = el.split(/\s+/);
         return {
